@@ -146,10 +146,13 @@ var map = new mapboxgl.Map({
 };
 // On every scroll event, check which element is on screen
 window.onscroll = function() {
+    debugger;
     var chapterNames = Object.keys(chapters);
     for (var i = 0; i < chapterNames.length; i++) {
+        debugger;
         var chapterName = chapterNames[i];
         if (isElementOnScreen(chapterName)) {
+            debugger;
             setActiveChapter(chapterName);
             break;
         }
@@ -157,6 +160,7 @@ window.onscroll = function() {
 };
 var activeChapterName = 'baker';
 function setActiveChapter(chapterName) {
+    debugger;
     if (chapterName === activeChapterName) return;
     map.flyTo(chapters[chapterName]);
     document.getElementById(chapterName).setAttribute('class', 'active');
@@ -164,6 +168,7 @@ function setActiveChapter(chapterName) {
     activeChapterName = chapterName;
 }
 function isElementOnScreen(id) {
+    debugger;
     var element = document.getElementById(id);
     var bounds = element.getBoundingClientRect();
     return bounds.top < window.innerHeight && bounds.bottom > 0;
